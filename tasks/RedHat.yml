@@ -1,0 +1,51 @@
+---
+- name: Install third party Repository.
+  package:
+    name: "{{ php_repository_url_debian }}"
+    state: present
+  when: php_third_party_enabled and not ansible_distribution == "Fedora"
+
+- name: "Install vanilla PHP."
+  package:
+    name: php
+    state: present
+  when: not php_third_party_enabled or ansible_distribution == "Fedora"
+
+- name: "Install third party PHP."
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "php{{ php_version_prefix }}{{ php_repo_suffix }}"
+    - "php{{ php_version_prefix }}{{ php_repo_suffix }}-cli"
+  when: php_third_party_enabled and not ansible_distribution == "Fedora"
+
+- name: "Install PHP modules."
+  package:
+    name: "php-{{ item }}"
+    state: present
+  with_items: "{{ php_enabled_modules }}"
+  notify: "restart webserver {{ webserver_name }}"
+  when: php_enabled_modules is defined and ansible_distribution == "Fedora" or not php_third_party_enabled
+
+- name: "Install PHP modules from third party repository."
+  package:
+    name: "php{{ php_version_prefix }}{{php_repo_suffix }}-{{ item }}"
+    state: present
+  with_items: "{{ php_enabled_modules }}"
+  notify: "restart webserver {{ webserver_name }}"
+  when: php_enabled_modules is defined and php_third_party_enabled and not ansible_distribution == "Fedora"
+
+- name: Check PHP installation Status.
+  stat:
+    path: "/etc/php/php.ini"
+  register: php_install_status
+
+- name: Configure main PHP ini file.
+  lineinfile:
+    dest: "/etc/php.ini"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    backup: true
+  with_items: "{{ php_config_options }}"
+  when: php_install_status.stat.exists

@@ -1,0 +1,68 @@
+---
+- name: Install Third Party Repository Key.
+  apt_key:
+    url: "{{ php_repository_key_debian }}"
+    state: present
+  when: php_third_party_enabled and ansible_distribution == "Debian"
+
+- name: Install Third Party Repository.
+  lineinfile:
+    path: /etc/apt/sources.list.d/php.list
+    line: "{{ php_repository_url_debian }}"
+    state: present
+    create: yes
+  when: php_third_party_enabled and ansible_distribution == "Debian"
+
+- name: Configure APT to use a PPA on Ubuntu.
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items: "{{ php_repository_ppa }}"
+  when: php_ppa_enabled and ansible_distribution == "Ubuntu"
+
+- name: Force APT Cache Update.
+  apt:
+    update_cache: yes
+    cache_valid_time: 0
+
+- name: "Install PHP."
+  package:
+    name: "php{% if php_major_version != 5 %}{{ php_version_prefix }}{% elif php_major_version == 5 %}5{% endif %}"
+    state: present
+  notify: "restart webserver {{ webserver_name }}"
+
+- name: "Install PHP modules."
+  package:
+    name: "php{% if php_major_version != 5 %}{{ php_version_prefix }}{% elif php_major_version == 5 %}5{% endif %}-{{ item }}"
+    state: present
+  with_items: "{{ php_enabled_modules }}"
+  notify: "restart webserver {{ webserver_name }}"
+
+- name: Check PHP Installation Status for Apache.
+  stat:
+    path: "/etc/php/{{ php_major_version }}.{{ php_minor_version }}/apache2/php.ini"
+  register: php_install_status_apache
+
+- name: Check PHP Installation Status for CLI.
+  stat:
+    path: "/etc/php/{{ php_major_version }}.{{ php_minor_version }}/cli/php.ini"
+  register: php_install_status_cli
+
+- name: Configure main PHP ini file for Apache.
+  lineinfile:
+    dest: "/etc/php/{{ php_major_version }}.{{ php_minor_version }}/apache2/php.ini"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    backup: true
+  with_items: "{{ php_config_options }}"
+  when: php_install_status_apache.stat.exists
+
+- name: Configure main PHP ini file for CLI.
+  lineinfile:
+    dest: "/etc/php/{{ php_major_version }}.{{ php_minor_version }}/cli/php.ini"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    backup: true
+  with_items: "{{ php_config_options }}"
+  when: php_install_status_cli.stat.exists

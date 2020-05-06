@@ -1,0 +1,8 @@
+---
+galaxy_info:
+  author: Thorian93
+  description: Ansible Role PHP
+  license: "license (MIT)"
+
+dependencies:
+ - { role: ansible-role-webserver }

@@ -1,0 +1,13 @@
+---
+php_prerequisites:
+  - apt-transport-https
+
+php_repository_key_debian: "https://packages.sury.org/php/apt.gpg"
+php_repository_url_debian: "deb https://packages.sury.org/php/ {{ ansible_lsb.codename }} main"
+php_repository_ppa: "ppa:ondrej/php"
+
+php_version_prefix: "{{ php_major_version }}.{{ php_minor_version }}"
+php_repo_suffix: ""
+
+php_enabled_modules:
+ - curl
