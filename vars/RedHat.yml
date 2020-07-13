@@ -5,6 +5,3 @@ php_repository_url_debian: "https://{{ ansible_distribution }}{{ ansible_distrib
 
 php_version_prefix: "{{ php_major_version }}{{ php_minor_version }}"
 php_repo_suffix: "u"
-
-php_enabled_modules:
- - curl

@@ -8,6 +8,3 @@ php_repository_ppa: "ppa:ondrej/php"
 
 php_version_prefix: "{{ php_major_version }}.{{ php_minor_version }}"
 php_repo_suffix: ""
-
-php_enabled_modules:
- - curl
