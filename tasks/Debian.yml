@@ -66,3 +66,8 @@
     backup: true
   with_items: "{{ php_config_options }}"
   when: php_install_status_cli.stat.exists
+
+- name: Enable PHP Base Module in Apache2.
+  apache2_module:
+    state: present
+    name: "php{{ php_major_version }}.{{ php_minor_version }}"
