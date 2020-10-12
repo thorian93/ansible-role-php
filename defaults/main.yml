@@ -10,8 +10,8 @@ php_stable_os:
   # - CentOS 8
   # - Fedora 30
   # - Fedora 31
-  # - openSUSE Leap 15
-  # - openSUSE Leap 42
+  # - opensuse 15.2
+  # - opensuse 42.2
 
 php_major_version: 7
 php_minor_version: 4
