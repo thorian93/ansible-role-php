@@ -2,6 +2,10 @@
 
 This role installs PHP on RHEL/CentOS, Debian/Ubuntu and Fedora servers.
 
+[![Ansible Role: PHP](https://img.shields.io/ansible/role/51303?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_php)
+[![Ansible Role: PHP](https://img.shields.io/ansible/quality/51303?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_php)
+[![Ansible Role: PHP](https://img.shields.io/ansible/role/d/51303?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_php)
+
 ## Known issues
 
 None.
@@ -53,7 +57,7 @@ Provide additional PHP configuration.
 
 This role ensures that it is not used against unsupported or untested operating systems by checking, if the right distribution name and major version number are present in a dedicated variable named like `<role-name>_stable_os`. You can find the variable in the role's default variable file at `defaults/main.yml`:
 
-    upgrade_stable_os:
+    role_stable_os:
       - Debian 10
       - Ubuntu 18
       - CentOS 7
