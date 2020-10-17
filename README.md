@@ -51,7 +51,8 @@ Provide additional PHP configuration.
 
 ## Dependencies
 
-[![Ansible Role: Webserver](https://img.shields.io/ansible/role/51301?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_webserver)
+[![Ansible Role: Webserver](https://img.shields.io/ansible/role/51301?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_webserver)</br>
+*For webserver detection.*
 
 ## OS Compatibility
 
