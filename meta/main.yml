@@ -24,4 +24,5 @@ galaxy_info:
       - 20
 
 dependencies:
- - { role: thorian93.ansible_role_webserver }
+  - name: thorian93.ansible_role_webserver
+    version: master
