@@ -54,7 +54,7 @@
     dest: "/etc/php/{{ php_major_version }}.{{ php_minor_version }}/apache2/php.ini"
     regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
-    backup: true
+    backup: 'true'
   with_items: "{{ php_config_options }}"
   when: php_install_status_apache.stat.exists
 
@@ -63,7 +63,7 @@
     dest: "/etc/php/{{ php_major_version }}.{{ php_minor_version }}/cli/php.ini"
     regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
-    backup: true
+    backup: 'true'
   with_items: "{{ php_config_options }}"
   when: php_install_status_cli.stat.exists
 

@@ -15,8 +15,8 @@ php_stable_os:
 
 php_major_version: 7
 php_minor_version: 4
-php_third_party_enabled: false
-php_ppa_enabled: false
+php_third_party_enabled: 'false'
+php_ppa_enabled: 'false'
 php_ppa: "ppa:ondrej/php"
 php_enabled_modules:
  - curl
