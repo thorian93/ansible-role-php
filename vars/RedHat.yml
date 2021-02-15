@@ -1,7 +1,7 @@
 ---
 php_prerequisites: []
 
-php_repository_url_debian: "https://{{ ansible_distribution }}{{ ansible_distribution_major_version }}.iuscommunity.org/ius-release.rpm"
+php_repository_setup: "https://repo.ius.io/ius-release-el{{ ansible_distribution_major_version }}.rpm"
 
 php_version_prefix: "{{ php_major_version }}{{ php_minor_version }}"
 php_repo_suffix: "u"

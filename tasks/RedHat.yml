@@ -1,7 +1,7 @@
 ---
 - name: Install third party Repository.
   package:
-    name: "{{ php_repository_url_debian }}"
+    name: "{{ php_repository_setup }}"
     state: present
   when: php_third_party_enabled and not ansible_distribution == "Fedora"
 
