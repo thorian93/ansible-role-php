@@ -1,0 +1,7 @@
+---
+php_prerequisites: []
+
+# php_repository_setup: centos-release-scl
+
+# php_version_prefix: "{{ php_major_version }}{{ php_minor_version }}"
+# php_repo_suffix: "u"
