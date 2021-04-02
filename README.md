@@ -31,11 +31,11 @@ Define the major PHP version.
 
 Define the minor PHP version.
 
-    php_third_party_enabled: false
+    php_third_party_enabled: 'false'
 
 Decide if a third party repository should be used. For details on those repositories see the `vars/` folder for the respective distribution. Probably this role will fail, if the third party repository is not enabled.
 
-    php_ppa_enabled: false
+    php_ppa_enabled: 'false'
     php_ppa: "ppa:ondrej/php"
 
 Decide if an Ubuntu PPS should be used and if yes which. The default is the well known [Sury](https://deb.sury.org/) repository. Probably this role will fail, if the PPA for Ubuntu is not enabled.
