@@ -2,9 +2,9 @@
 
 This role installs PHP on RHEL/CentOS, Debian/Ubuntu and Fedora servers.
 
-[![Ansible Role: PHP](https://img.shields.io/ansible/role/51303?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_php)
-[![Ansible Role: PHP](https://img.shields.io/ansible/quality/51303?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_php)
-[![Ansible Role: PHP](https://img.shields.io/ansible/role/d/51303?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_php)
+[![Ansible Role: PHP](https://img.shields.io/ansible/role/55141?style=flat-square)](https://galaxy.ansible.com/thorian93/php)
+[![Ansible Role: PHP](https://img.shields.io/ansible/quality/55141?style=flat-square)](https://galaxy.ansible.com/thorian93/php)
+[![Ansible Role: PHP](https://img.shields.io/ansible/role/d/55141?style=flat-square)](https://galaxy.ansible.com/thorian93/php)
 
 ## Known issues
 
@@ -51,7 +51,7 @@ Provide additional PHP configuration.
 
 ## Dependencies
 
-[![Ansible Role: Webserver](https://img.shields.io/ansible/role/51301?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_webserver)</br>
+[![Ansible Role: Webserver](https://img.shields.io/ansible/role/51301?style=flat-square)](https://galaxy.ansible.com/thorian93/webserver)</br>
 *For webserver detection.*
 
 ## OS Compatibility
