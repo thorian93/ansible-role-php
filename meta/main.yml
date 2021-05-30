@@ -1,7 +1,8 @@
 ---
 galaxy_info:
-  author: Thorian93
-  description: Ansible Role PHP
+  role_name: php
+  author: thorian93
+  description: PHP Management
   license: "license (MIT)"
   
   min_ansible_version: 2.9
@@ -24,5 +25,5 @@ galaxy_info:
       - 20
 
 dependencies:
-  - name: thorian93.ansible_role_webserver
+  - name: thorian93.webserver
     version: master
