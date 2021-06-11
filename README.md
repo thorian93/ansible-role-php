@@ -1,6 +1,6 @@
 # Ansible Role: PHP
 
-This role installs PHP on RHEL/CentOS, Debian/Ubuntu and Fedora servers.
+This role installs PHP on Debian/Ubuntu, RHEL/CentOS and Fedora servers.
 
 [![Ansible Role: PHP](https://img.shields.io/ansible/role/55141?style=flat-square)](https://galaxy.ansible.com/thorian93/php)
 [![Ansible Role: PHP](https://img.shields.io/ansible/quality/55141?style=flat-square)](https://galaxy.ansible.com/thorian93/php)
@@ -16,7 +16,7 @@ No special requirements; note that this role requires root access, so either run
 
     - hosts: foobar
       roles:
-        - role: ansible-role-php
+        - role: thorian93.php
           become: yes
 
 ## Role Variables
